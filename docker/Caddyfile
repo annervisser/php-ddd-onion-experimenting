@@ -1,0 +1,8 @@
+localhost
+
+encode zstd gzip
+route {
+	root * /srv/app/public
+	php_fastcgi php-fpm:9000
+	file_server
+}
