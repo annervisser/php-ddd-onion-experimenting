@@ -1,0 +1,9 @@
+{
+	"$schema": "vendor/infection/infection/resources/schema.json",
+	"initialTestsPhpOptions": "-d xdebug.mode=coverage",
+	"source": {
+		"directories": [
+			"src"
+		]
+	}
+}

@@ -1,0 +1,60 @@
+{
+  "name": "anner/slim-ddd",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Anner Visser",
+      "email": "annervisser@gmail.com"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "^2.10",
+    "monolog/monolog": "^2.3",
+    "nyholm/psr7": "^1.4",
+    "nyholm/psr7-server": "^1.0",
+    "php-di/php-di": "^6.3",
+    "ramsey/uuid": "^4.2",
+    "slim/slim": "^4.9",
+    "webmozart/assert": "^1.10"
+  },
+  "require-dev": {
+    "codedungeon/phpunit-result-printer": "^0.31.0",
+    "doctrine/coding-standard": "^9.0",
+    "infection/infection": "^0.25.3",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.2",
+    "phpstan/phpstan-doctrine": "^1.0",
+    "phpstan/phpstan-webmozart-assert": "^1.0",
+    "phpunit/phpunit": "^9.5",
+    "psalm/plugin-phpunit": "^0.16.1",
+    "roave/security-advisories": "dev-latest",
+    "squizlabs/php_codesniffer": "^3.6",
+    "vimeo/psalm": "^4.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Content\\": "src/Content/",
+      "Shared\\": "src/Shared/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ContentTest\\": "test/unit/Content",
+      "SharedTest\\": "test/unit/Shared"
+    }
+  },
+  "scripts": {
+    "cs": "@phpcs",
+    "cs-fix": "@phpcbf",
+    "phpcbf": "phpcbf",
+    "phpcs": "phpcs",
+    "serve": "php -S 0.0.0.0:8080 -t public/",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "apcu-autoloader": true
+  }
+}
