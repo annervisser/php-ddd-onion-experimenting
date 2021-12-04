@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Shared\Infra\Settings;
 
+use function explode;
+
 class Settings implements SettingsInterface
 {
     /** @psalm-param array<string, mixed> $settings */
@@ -13,6 +15,12 @@ class Settings implements SettingsInterface
 
     public function get(string $key): mixed
     {
-        return $this->settings[$key];
+        $parts  = explode('.', $key);
+        $return = $this->settings;
+        foreach ($parts as $part) {
+            $return = $return[$part];
+        }
+
+        return $return;
     }
 }

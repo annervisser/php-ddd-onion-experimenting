@@ -5,8 +5,8 @@
 - [ ] graphql
 - [ ] opentelemetry
 - [ ] domain <> logic <> api
-- [ ] symfony fw vs no symfony -> probably slim
-- [ ] DI without symfony fw -> php-di
+- [x] symfony fw vs no symfony -> probably slim
+- [x] DI without symfony fw -> php-di
 - [ ] deserializing / validation
 - [x] php value objects & php entities
 - [ ] Authentication
@@ -23,7 +23,12 @@
 - [ ] integration testing
 - [ ] e2e testing
 - [ ] api spec testing
+  - https://github.com/thephpleague/openapi-psr7-validator
 - [ ] gherkin/behat?
+  - https://github.com/ciaranmcnulty/behat-psr7extension
+  - https://github.com/malukenho/kawaii-gherkin
+  - https://github.com/Behat/MinkExtension
+  - https://github.com/imbo/behat-api-extension
 
 #### Performance
 - [ ] doctrine Change tracking policy: explicit
@@ -46,6 +51,7 @@
 - https://github.com/Roave/BetterReflection/tree/5.0.x/test
 - https://github.com/ShittySoft/symfony-live-berlin-2018-doctrine-tutorial
 - https://github.com/pelshoff/technically-ddd
+- https://github.com/odan/slim4-skeleton
 - https://github.com/marcosh/tickets
 - https://github.com/dddinphp/last-wishes
 - https://dev.to/ludofleury/domain-driven-design-with-php-and-symfony-1bl6

@@ -9,13 +9,16 @@
   ],
   "require": {
     "php": "^8.1.0",
+    "doctrine/migrations": "^3.3",
     "doctrine/orm": "^2.10",
     "monolog/monolog": "^2.3",
     "nyholm/psr7": "^1.4",
     "nyholm/psr7-server": "^1.0",
     "php-di/php-di": "^6.3",
     "ramsey/uuid": "^4.2",
+    "ramsey/uuid-doctrine": "^1.8",
     "slim/slim": "^4.9",
+    "symfony/cache": "^6.0",
     "webmozart/assert": "^1.10"
   },
   "require-dev": {

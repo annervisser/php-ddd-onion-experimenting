@@ -10,13 +10,14 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Embedded;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Shared\Domain\EntityInterface;
 
 #[Entity]
-final class Article implements EntityInterface
+class Article implements EntityInterface
 {
     #[Id, Column(type: 'uuid_binary_ordered_time')]
     private UuidInterface $id;
@@ -24,10 +25,11 @@ final class Article implements EntityInterface
     #[Column]
     private DateTimeImmutable $createdAt;
 
-    #[OneToMany]
+    #[ManyToOne]
+    #[JoinColumn(nullable: false)]
     private Category $category;
 
-    #[Embedded]
+    #[Embedded(columnPrefix: false)]
     private ArticleTitle $title;
 
     private function __construct(

@@ -8,13 +8,15 @@ use Content\Domain\Category\CategoryTitle;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Embedded;
+use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use Shared\Domain\EntityInterface;
 
-final class Category implements EntityInterface
+#[Entity]
+class Category implements EntityInterface
 {
     #[Id, Column(type: 'uuid_binary_ordered_time')]
     private UuidInterface $id;
@@ -22,10 +24,10 @@ final class Category implements EntityInterface
     #[Column]
     private DateTimeImmutable $createdAt;
 
-    #[OneToMany]
+    #[ManyToOne]
     private ?Category $parent;
 
-    #[Embedded]
+    #[Embedded(columnPrefix: false)]
     private CategoryTitle $title;
 
     private function __construct(?Category $parent, CategoryTitle $title)
@@ -61,9 +63,10 @@ final class Category implements EntityInterface
         return $this->parent;
     }
 
-    /** @psalm-assert-if-false Category $this->getParent() */
-
-    /** @psalm-assert-if-true null $this->getParent() */
+    /**
+     * @psalm-assert-if-false !null $this->parent
+     * @psalm-assert-if-true null $this->parent
+     */
     public function isRootCategory(): bool
     {
         return ! isset($this->parent);

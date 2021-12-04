@@ -10,7 +10,10 @@ use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Shared\Infra\Settings\SettingsInterface;
 
-return function (ContainerBuilder $containerBuilder): void {
+return static function (ContainerBuilder $containerBuilder): void {
+    $doctrine = require __DIR__ . '/dependencies/doctrine.php';
+    ($doctrine)($containerBuilder);
+
     $containerBuilder->addDefinitions([
         LoggerInterface::class => static function (ContainerInterface $c) {
             $settings = $c->get(SettingsInterface::class);

@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Content\Domain\Category;
 
 use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Embeddable;
 use Shared\Domain\ValueObject\StringValueObject;
 use Webmozart\Assert\Assert;
 
 use function trim;
 
 /** @psalm-immutable */
+#[Embeddable]
 final class CategoryTitle extends StringValueObject
 {
     #[Column(name: 'title', length: 150)]
