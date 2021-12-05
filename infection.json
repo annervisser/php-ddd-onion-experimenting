@@ -4,6 +4,9 @@
     "source": {
         "directories": [
             "src"
+        ],
+        "excludes": [
+            "{.*/Ports/.*}"
         ]
     },
     "minMsi": 97,

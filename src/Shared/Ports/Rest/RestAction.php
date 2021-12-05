@@ -11,6 +11,7 @@ interface RestAction
 {
     /**
      * @param array<string, mixed> $args
+     *
      * @no-named-arguments
      */
     public function __invoke(

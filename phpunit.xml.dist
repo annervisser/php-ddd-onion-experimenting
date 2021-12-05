@@ -20,5 +20,9 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <!--TODO: Do we want to use phpunit for ports testing?-->
+            <directory>src/*/Ports</directory>
+        </exclude>
     </coverage>
 </phpunit>
