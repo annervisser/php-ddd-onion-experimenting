@@ -10,7 +10,15 @@
 - [ ] deserializing / validation
 - [x] php value objects & php entities
 - [ ] Authentication
-- [ ] Github Actions
+- [x] Github Actions
+- [ ] env config (switching between dev/prod)
+- [ ] CLI commands
+- [ ] Logging
+- [ ] Serializing
+
+#### Security
+- [ ] CORS
+- [ ] samesite cookies
 
 #### Code quality
 - [x] psalm
