@@ -11,21 +11,15 @@ use Psr\Log\LoggerInterface;
 use Shared\Infra\Settings\SettingsInterface;
 
 return static function (ContainerBuilder $containerBuilder): void {
-    $doctrine = require __DIR__ . '/dependencies/doctrine.php';
-    ($doctrine)($containerBuilder);
-
     $containerBuilder->addDefinitions([
         LoggerInterface::class => static function (ContainerInterface $c) {
             $settings = $c->get(SettingsInterface::class);
             assert($settings instanceof SettingsInterface);
 
-            $loggerSettings = $settings->get('logger');
-            $logger         = new Logger($loggerSettings['name']);
+            $logger = new Logger($settings->get('logger.name'));
+            $logger->pushProcessor(new UidProcessor());
 
-            $processor = new UidProcessor();
-            $logger->pushProcessor($processor);
-
-            $handler = new StreamHandler($loggerSettings['path'], $loggerSettings['level']);
+            $handler = new StreamHandler($settings->get('logger.path'), $settings->get('logger.level'));
             $logger->pushHandler($handler);
 
             return $logger;

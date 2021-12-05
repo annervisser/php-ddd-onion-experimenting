@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+// Copy this to config.local.php to override configuration settings
+
+return [
+    'environment' => 'dev',
+    'displayErrorDetails' => true,
+    'container' => ['enableCompilation' => false],
+    'doctrine' => [
+        'dev_mode' => true,
+        'connection' => [
+            'driver' => 'pdo_mysql',
+            'host' => '127.0.0.1',
+            'port' => 3306,
+            'dbname' => '',
+            'user' => '',
+            'password' => '',
+        ],
+    ],
+];

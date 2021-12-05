@@ -54,7 +54,7 @@
     "phpcs": "phpcs",
     "serve": "php -S 0.0.0.0:8080 -t public/",
     "test": "phpunit --colors=always",
-    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml"
   },
   "config": {
     "sort-packages": true,

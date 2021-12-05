@@ -2,3 +2,5 @@ vendor/
 .phpunit.result.cache
 .phpcs-cache
 .idea/
+/var/
+clover.xml

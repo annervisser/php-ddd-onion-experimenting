@@ -33,7 +33,8 @@ final class GetArticleAction implements RestAction
         ResponseInterface $response,
         array $args
     ): ResponseInterface {
-        Assert::uuid($id = $args['id']);
+        $id = $args['id'];
+        Assert::uuid($id);
         $query   = GetArticleQuery::fromString($id);
         $article = ($this->getArticleQueryHandler)($query);
         if (! isset($article)) {

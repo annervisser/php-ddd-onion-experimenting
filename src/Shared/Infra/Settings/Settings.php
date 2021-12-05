@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Shared\Infra\Settings;
 
+use function array_replace_recursive;
 use function explode;
 
-class Settings implements SettingsInterface
+/** @psalm-immutable */
+final class Settings implements SettingsInterface
 {
     /** @psalm-param array<string, mixed> $settings */
-    public function __construct(private array $settings)
+    public function __construct(private readonly array $settings = [])
     {
     }
 
@@ -22,5 +24,11 @@ class Settings implements SettingsInterface
         }
 
         return $return;
+    }
+
+    /** @psalm-param array<string, mixed> $settings */
+    public function addSettings(array $settings): self
+    {
+        return new self(array_replace_recursive($this->settings, $settings));
     }
 }

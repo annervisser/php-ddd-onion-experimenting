@@ -24,4 +24,20 @@ class SettingsTest extends TestCase
         self::assertEquals('doublenestedvalue', $settings->get('doublenested.nested.value'));
         self::assertEquals(['value' => 'nestedvalue'], $settings->get('nested'));
     }
+
+    public function testAddSettings(): void
+    {
+        // Basic value
+        $settings = new Settings(['a' => 'valueA', 'nested' => ['b' => 'valueB']]);
+        $settings = $settings->addSettings(['a' => 'newValueA']);
+        self::assertEquals('newValueA', $settings->get('a'));
+
+        // Nested settings
+        $settings = $settings->addSettings(['nested' => ['b' => 'newValueB']]);
+        self::assertEquals('newValueB', $settings->get('nested.b'));
+
+        // New nested setting not overwriting existing
+        $settings = $settings->addSettings(['nested' => ['c' => 'valueC']]);
+        self::assertEquals('newValueB', $settings->get('nested.b'));
+    }
 }

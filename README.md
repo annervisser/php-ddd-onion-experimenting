@@ -11,7 +11,7 @@
 - [x] php value objects & php entities
 - [ ] Authentication
 - [x] Github Actions
-- [ ] env config (switching between dev/prod)
+- [x] env config (switching between dev/prod)
 - [ ] CLI commands
 - [ ] Logging
 - [ ] Serializing
