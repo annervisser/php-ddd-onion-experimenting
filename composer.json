@@ -9,11 +9,20 @@
   ],
   "require": {
     "php": "^8.1.0",
+    "ext-bcmath": "*",
+    "ext-gmp": "*",
+    "ext-igbinary": "*",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "ext-uuid": "*",
+    "doctrine/event-manager": "^1.1",
     "doctrine/orm": "^2.10",
     "monolog/monolog": "^2.3",
     "nyholm/psr7": "^1.4",
     "nyholm/psr7-server": "^1.0",
     "php-di/php-di": "^6.3",
+    "psr/http-message": "^1.0",
     "ramsey/uuid": "^4.2",
     "ramsey/uuid-doctrine": "^1.8",
     "slim/slim": "^4.9",
@@ -24,6 +33,7 @@
     "codedungeon/phpunit-result-printer": "^0.31.0",
     "doctrine/coding-standard": "^9.0",
     "infection/infection": "^0.25.3",
+    "maglnet/composer-require-checker": "^4.0",
     "phpstan/extension-installer": "^1.1",
     "phpstan/phpstan": "^1.2",
     "phpstan/phpstan-doctrine": "^1.0",
@@ -56,7 +66,8 @@
       "@phpstan",
       "@cs",
       "@test",
-      "@infection"
+      "@infection",
+      "@composer-require-checker"
     ],
     "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml",
     "cs": "@phpcs",
@@ -65,7 +76,8 @@
     "phpcs": "phpcs",
     "infection": "infection",
     "psalm": "psalm",
-    "phpstan": "phpstan"
+    "phpstan": "phpstan",
+    "composer-require-checker": "composer-require-checker"
   },
   "config": {
     "sort-packages": true,

@@ -11,8 +11,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Ramsey\Uuid\Uuid;
 use Shared\Ports\Rest\JsonSerializer;
 use Shared\Ports\Rest\RestAction;
-
-use function PHPUnit\Framework\assertIsArray;
+use Webmozart\Assert\Assert;
 
 final class CreateArticleAction implements RestAction
 {
@@ -31,7 +30,7 @@ final class CreateArticleAction implements RestAction
         array $args
     ): ResponseInterface {
         $requestData = $request->getParsedBody();
-        assertIsArray($requestData);
+        Assert::isArray($requestData);
         $categoryId = Uuid::fromString((string) $requestData['categoryId']);
         $command    = new CreateArticleCommand($categoryId, (string) $requestData['title']);
         $articleId  = ($this->createArticleCommandHandler)($command);
