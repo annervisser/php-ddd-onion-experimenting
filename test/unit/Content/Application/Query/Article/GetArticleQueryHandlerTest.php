@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace ContentTest\Application\Query;
+namespace ContentTest\Application\Query\Article;
 
-use Content\Application\Query\GetArticleQuery;
-use Content\Application\Query\GetArticleQueryHandler;
+use Content\Application\Query\Article\GetArticleQuery;
+use Content\Application\Query\Article\GetArticleQueryHandler;
 use Content\Domain\Article;
 use Content\Domain\Category;
 use Content\Infra\Repository\ArticleRepository;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
-/** @covers \Content\Application\Query\GetArticleQueryHandler */
+/** @covers \Content\Application\Query\Article\GetArticleQueryHandler */
 class GetArticleQueryHandlerTest extends TestCase
 {
     public function testInvokeWithValidUuid(): void

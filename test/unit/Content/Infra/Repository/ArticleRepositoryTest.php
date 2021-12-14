@@ -7,50 +7,81 @@ namespace ContentTest\Infra\Repository;
 use Content\Domain\Article;
 use Content\Domain\Category;
 use Content\Infra\Repository\ArticleRepository;
-use Doctrine\ORM\EntityManager;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
+use UnitTestHelpers\InMemoryObjectPersister;
 
-/** @covers \Content\Infra\Repository\ArticleRepository */
+/**
+ * @covers \Content\Infra\Repository\ArticleRepository
+ * @covers \Shared\Infra\Repository\AbstractRepository
+ */
 class ArticleRepositoryTest extends TestCase
 {
-    private static UuidInterface $articleId;
+    private static Article $article;
 
     public static function setUpBeforeClass(): void
     {
-        self::$articleId = Uuid::uuid6();
+        self::$article = self::getArticle();
         parent::setUpBeforeClass();
     }
 
     public function testFind(): void
     {
         $repository = $this->getRepository();
-        self::assertInstanceOf(Article::class, $repository->find(self::$articleId));
-        self::assertNull($repository->find(Uuid::uuid6()));
+        self::assertInstanceOf(Article::class, $repository->find(self::$article->getId()));
+        self::assertNull($repository->find(Uuid::uuid1()));
     }
 
     public function testGet(): void
     {
         $repository = $this->getRepository();
-        self::assertInstanceOf(Article::class, $repository->get(self::$articleId));
+        self::assertInstanceOf(Article::class, $repository->get(self::$article->getId()));
         $this->expectException(LogicException::class);
-        $repository->get(Uuid::uuid6());
+        $repository->get(Uuid::uuid1());
+    }
+
+    public function testCreate(): void
+    {
+        $repo    = $this->getRepository();
+        $article = self::getArticle();
+        $repo->create($article);
+        self::assertNotNull($repo->find($article->getId()));
+        self::assertEquals($article, $repo->get($article->getId()));
+    }
+
+    public function testUpdate(): void
+    {
+        $repo    = $this->getRepository();
+        $article = self::getArticle();
+        $repo->create($article);
+        $article->changeTitle(new Article\ArticleTitle('changedtitle'));
+        self::assertSame(
+            $repo->get($article->getId())->getTitle()->getTitle(),
+            'articletitle',
+            'Title should not have been updated yet'
+        );
+        $repo->update($article);
+        self::assertSame(
+            $repo->get($article->getId())->getTitle()->getTitle(),
+            'changedtitle',
+            'Title should be updated after calling update()'
+        );
     }
 
     private function getRepository(): ArticleRepository
     {
-        $emMock  = $this->createMock(EntityManager::class);
-        $article = Article::create(
+        $persister = new InMemoryObjectPersister();
+        $persister->create(self::$article);
+
+        return new ArticleRepository($persister);
+    }
+
+    private static function getArticle(): Article
+    {
+        return Article::create(
             Category::createRootCategory(new Category\CategoryTitle('cat')),
             new Article\ArticleTitle('articletitle')
         );
-        $emMock->method('find')->willReturnCallback(
-            /** @psalm-suppress UnusedClosureParam we need to match EntityManager::find() */
-            static fn (string $class, UuidInterface $uuid) => $uuid->equals(self::$articleId) ? $article : null
-        );
-
-        return new ArticleRepository($emMock);
     }
 }

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping\Driver\AttributeDriver;
 use Doctrine\ORM\Tools\Setup;
 use Psr\Container\ContainerInterface;
 use Ramsey\Uuid\Doctrine\UuidBinaryOrderedTimeType;
+use Shared\Infra\Doctrine\DoctrineTrackingPolicySubscriber;
 use Shared\Infra\Settings\SettingsInterface;
 
 return static function (ContainerBuilder $containerBuilder): void {
@@ -34,6 +35,9 @@ return static function (ContainerBuilder $containerBuilder): void {
                 $settings->get('doctrine.connection'),
                 $config
             );
+
+            $eventManager = $entityManager->getEventManager();
+            $eventManager->addEventSubscriber(new DoctrineTrackingPolicySubscriber());
 
             DBALTypes::addType('uuid_binary_ordered_time', UuidBinaryOrderedTimeType::class);
             $entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping(

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Content\Application\Query;
+namespace Content\Application\Query\Article;
 
 use Content\Infra\Repository\ArticleRepository;
 

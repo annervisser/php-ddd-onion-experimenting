@@ -34,7 +34,7 @@ class Category implements EntityInterface
     {
         $this->title     = $title;
         $this->parent    = $parent;
-        $this->id        = Uuid::uuid6();
+        $this->id        = Uuid::uuid1();
         $this->createdAt = new DateTimeImmutable();
     }
 

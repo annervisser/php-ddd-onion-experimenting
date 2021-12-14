@@ -38,7 +38,7 @@ class Article implements EntityInterface
     ) {
         $this->category  = $category;
         $this->title     = $title;
-        $this->id        = Uuid::uuid6();
+        $this->id        = Uuid::uuid1();
         $this->createdAt = new DateTimeImmutable();
     }
 

@@ -23,6 +23,7 @@
         <exclude>
             <!--TODO: Do we want to use phpunit for ports testing?-->
             <directory>src/*/Ports</directory>
+            <directory>src/Shared/Infra/Doctrine</directory>
         </exclude>
     </coverage>
 </phpunit>

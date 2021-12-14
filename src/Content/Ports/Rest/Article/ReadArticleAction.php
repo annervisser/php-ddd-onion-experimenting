@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Content\Ports\Rest;
+namespace Content\Ports\Rest\Article;
 
-use Content\Application\Query\GetArticleQuery;
-use Content\Application\Query\GetArticleQueryHandler;
+use Content\Application\Query\Article\GetArticleQuery;
+use Content\Application\Query\Article\GetArticleQueryHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Shared\Ports\Rest\JsonSerializer;
@@ -15,7 +15,7 @@ use Webmozart\Assert\Assert;
 
 use function sprintf;
 
-final class GetArticleAction implements RestAction
+final class ReadArticleAction implements RestAction
 {
     public function __construct(
         private readonly GetArticleQueryHandler $getArticleQueryHandler,
@@ -33,6 +33,7 @@ final class GetArticleAction implements RestAction
         ResponseInterface $response,
         array $args
     ): ResponseInterface {
+        Assert::string($args['id']);
         $id = $args['id'];
         Assert::uuid($id);
         $query   = GetArticleQuery::fromString($id);

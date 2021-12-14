@@ -44,17 +44,28 @@
   "autoload-dev": {
     "psr-4": {
       "ContentTest\\": "test/unit/Content",
-      "SharedTest\\": "test/unit/Shared"
+      "SharedTest\\": "test/unit/Shared",
+      "UnitTestHelpers\\": "test/unit/helpers"
     }
   },
   "scripts": {
+    "serve": "php -S 0.0.0.0:8080 -t public/",
+    "test": "phpunit --colors=always",
+    "check": [
+      "@psalm",
+      "@phpstan",
+      "@cs",
+      "@test",
+      "@infection"
+    ],
+    "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml",
     "cs": "@phpcs",
     "cs-fix": "@phpcbf",
     "phpcbf": "phpcbf",
     "phpcs": "phpcs",
-    "serve": "php -S 0.0.0.0:8080 -t public/",
-    "test": "phpunit --colors=always",
-    "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml"
+    "infection": "infection",
+    "psalm": "psalm",
+    "phpstan": "phpstan"
   },
   "config": {
     "sort-packages": true,

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ContentTest\Application\Query;
+namespace ContentTest\Application\Query\Article;
 
-use Content\Application\Query\GetArticleQuery;
+use Content\Application\Query\Article\GetArticleQuery;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 
-/** @covers \Content\Application\Query\GetArticleQuery */
+/** @covers \Content\Application\Query\Article\GetArticleQuery */
 class GetArticleQueryTest extends TestCase
 {
     public function testFromString(): void

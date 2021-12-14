@@ -1,0 +1,42 @@
+POST http://localhost:8080/articles
+Content-Type: application/json
+
+{
+    "categoryId": "791cdde9-5544-11ec-8f22-0242ac150002",
+    "title": "Article title"
+}
+
+> {%
+    client.test(
+        "Request executed successfully",
+        () => client.assert(response.status === 200, "Response status is not 200")
+    );
+    client.test(
+        "Response content-type is json",
+        () => client.assert(response.contentType.mimeType === 'application/json', "Response type is not application/json")
+    );
+
+    client.global.set("article_id", response.body.articleId);
+%}
+
+###
+
+GET http://localhost:8080/articles/{{article_id}}
+Accept: application/json
+
+> {%
+    client.test(
+        "Request executed successfully",
+        () => client.assert(response.status === 200)
+    );
+    client.test(
+        "Response content-type is json",
+        () => client.assert(response.contentType.mimeType === 'application/json')
+    );
+
+    client.test("Response id matches request", () => {
+        const requestId = client.global.get('article_id') + ''; // For some reason this is an object...
+        const responseId = response.body.id;
+        client.assert(responseId === requestId, 'Expected id "' + requestId + '", got "' + responseId + '"');
+    });
+%}

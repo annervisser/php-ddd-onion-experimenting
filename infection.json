@@ -6,9 +6,10 @@
             "src"
         ],
         "excludes": [
-            "{.*/Ports/.*}"
+            "{.*/Ports/.*}",
+            "Shared/Infra/Doctrine"
         ]
     },
     "minMsi": 97,
-    "minCoveredMsi": 97
+    "minCoveredMsi": 100
 }

@@ -39,7 +39,7 @@
   - https://github.com/imbo/behat-api-extension
 
 #### Performance
-- [ ] doctrine Change tracking policy: explicit
+- [x] doctrine Change tracking policy: explicit
 - [ ] DI compilation
 - [ ] DI define autowired classes for compilation (automagically?)
 - [ ] opcache
