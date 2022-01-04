@@ -3,5 +3,15 @@
     {
       "name": "PHPUnit on PHP 8.1 with lowest dependencies"
     }
+  ],
+  "additional_checks": [
+    {
+      "name": "Deptrac",
+      "job": {
+        "php": "*",
+        "dependencies": "locked",
+        "command": "vendor/bin/deptrac analyse"
+      }
+    }
   ]
 }
