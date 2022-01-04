@@ -14,7 +14,6 @@
     "ext-igbinary": "*",
     "ext-json": "*",
     "ext-pdo": "*",
-    "ext-pdo_mysql": "*",
     "ext-uuid": "*",
     "doctrine/event-manager": "^1.1",
     "doctrine/orm": "^2.10",
@@ -68,7 +67,8 @@
       "@cs",
       "@test",
       "@infection",
-      "@composer-require-checker"
+      "@composer-require-checker",
+      "@deptrac"
     ],
     "test-coverage": "XDEBUG_MODE=coverage phpunit --colors=always --coverage-clover clover.xml",
     "cs": "@phpcs",
@@ -78,7 +78,8 @@
     "infection": "infection",
     "psalm": "psalm",
     "phpstan": "phpstan",
-    "composer-require-checker": "composer-require-checker"
+    "composer-require-checker": "composer-require-checker",
+    "deptrac": "deptrac"
   },
   "config": {
     "sort-packages": true,
