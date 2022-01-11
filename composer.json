@@ -31,7 +31,7 @@
   "require-dev": {
     "codedungeon/phpunit-result-printer": "^0.31.0",
     "doctrine/coding-standard": "^9.0",
-    "infection/infection": "^0.25.3",
+    "infection/infection": "^0.26.0",
     "maglnet/composer-require-checker": "^4.0",
     "phpstan/extension-installer": "^1.1",
     "phpstan/phpstan": "^1.2",
