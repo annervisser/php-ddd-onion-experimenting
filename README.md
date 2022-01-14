@@ -76,3 +76,18 @@
 - https://leanpub.com/cqrs-by-example/
 - https://www.amazon.com/exec/obidos/ASIN/0321125215/domainlanguag-20
 - https://www.bol.com/nl/nl/f/domain-driven-design-distilled/9200000050289699/
+
+
+### Interesting projects (taken from https://speakerdeck.com/ramsey/cool-tools-for-php-development-mergephp-january-2022)
+
+- https://dephpend.com/
+- https://dredd.org/en/latest/
+- https://lando.dev/
+- https://github.com/carlosas/phpat
+- https://github.com/nunomaduro/phpinsights
+- https://phpmd.org/
+- https://github.com/php-parallel-lint/PHP-Parallel-Lint
+- https://phpqa.io/
+- https://github.com/PHPCompatibility/PHPCompatibility
+- https://prettier.io/
+- https://github.com/ramsey/composer-repl
