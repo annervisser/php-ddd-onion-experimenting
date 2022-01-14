@@ -10,6 +10,8 @@ use Shared\Domain\EntityInterface;
 use Shared\Infra\Repository\ObjectPersisterInterface;
 use Webmozart\Assert\Assert;
 
+use function get_class;
+
 class InMemoryObjectPersister implements ObjectPersisterInterface
 {
     /** @var array<class-string, array<string, mixed>> */
@@ -47,7 +49,8 @@ class InMemoryObjectPersister implements ObjectPersisterInterface
 
     private function store(string $id, object $object): void
     {
-        $this->data[$object::class]    ??= [];
-        $this->data[$object::class][$id] = clone $object;
+        $class                   = get_class($object);
+        $this->data[$class]    ??= [];
+        $this->data[$class][$id] = clone $object;
     }
 }

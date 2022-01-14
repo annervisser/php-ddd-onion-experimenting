@@ -1,7 +1,7 @@
 ### TODO
 
 - [x] php 8.1
-- [ ] https://github.com/qossmic/deptrac
+- [x] https://github.com/qossmic/deptrac
 - [ ] graphql
 - [ ] opentelemetry
 - [ ] domain <> logic <> api
