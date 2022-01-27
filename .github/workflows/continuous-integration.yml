@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ${{ matrix.name }}
-        uses: laminas/laminas-continuous-integration-action@1.16.1
+        uses: laminas/laminas-continuous-integration-action@1.17.1
         env:
           "GITHUB_TOKEN": ${{ secrets.GITHUB_TOKEN }}
         with:
