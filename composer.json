@@ -17,7 +17,7 @@
     "ext-uuid": "*",
     "doctrine/event-manager": "^1.1",
     "doctrine/orm": "^2.10",
-    "monolog/monolog": "^2.3",
+    "monolog/monolog": "^3.0",
     "nyholm/psr7": "^1.4",
     "nyholm/psr7-server": "^1.0",
     "php-di/php-di": "^6.3",
