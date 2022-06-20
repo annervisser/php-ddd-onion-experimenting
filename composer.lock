@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eb306d25af926839555c543adbc5bdf",
+    "content-hash": "e32950d3f60c122f3601cef05794916a",
     "packages": [
         {
             "name": "brick/math",
@@ -5601,16 +5601,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "76150ae7512439b4e6903db834e4a327596b617d"
+                "reference": "4a07085f74cb1f3fc7103efa537d9f00ebb74ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/76150ae7512439b4e6903db834e4a327596b617d",
-                "reference": "76150ae7512439b4e6903db834e4a327596b617d",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/4a07085f74cb1f3fc7103efa537d9f00ebb74ec7",
+                "reference": "4a07085f74cb1f3fc7103efa537d9f00ebb74ec7",
                 "shasum": ""
             },
             "require": {
@@ -5640,9 +5640,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.6.2"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.6.3"
             },
-            "time": "2022-06-10T09:29:33+00:00"
+            "time": "2022-06-14T11:40:08+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -6296,16 +6296,16 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "0.16.1",
+            "version": "0.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-phpunit.git",
-                "reference": "5dd3be04f37a857d52880ef6af2524a441dfef24"
+                "reference": "45951541beef07e93e3ad197daf01da88e85c31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/5dd3be04f37a857d52880ef6af2524a441dfef24",
-                "reference": "5dd3be04f37a857d52880ef6af2524a441dfef24",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/45951541beef07e93e3ad197daf01da88e85c31d",
+                "reference": "45951541beef07e93e3ad197daf01da88e85c31d",
                 "shasum": ""
             },
             "require": {
@@ -6350,9 +6350,9 @@
             "description": "Psalm plugin for PHPUnit",
             "support": {
                 "issues": "https://github.com/psalm/psalm-plugin-phpunit/issues",
-                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/0.16.1"
+                "source": "https://github.com/psalm/psalm-plugin-phpunit/tree/0.17.0"
             },
-            "time": "2021-06-18T23:56:46+00:00"
+            "time": "2022-06-14T17:05:57+00:00"
         },
         {
             "name": "qossmic/deptrac-shim",
