@@ -1,0 +1,7 @@
+imports:
+  - src/Content/Content.deptrac.yaml
+  - src/Shared/Shared.deptrac.yaml
+
+deptrac:
+  paths:
+    - ./src
