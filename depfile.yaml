@@ -1,5 +1,0 @@
-paths:
-  - ./src
-imports:
-  - src/Content/Content.depfile.yml
-  - src/Shared/Shared.depfile.yml
